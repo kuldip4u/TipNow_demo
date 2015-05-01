@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:layout_margin="10dip">
+		<TableLayout 
+		         android:id="@+id/tableLayout1"
+	             android:layout_width="fill_parent"
+		         android:layout_height="wrap_content" >
+	 	    <TableRow >
+	 	        <TextView
+	                     android:id="@+id/headline"
+	                     android:layout_width="0dip"
+	                     android:layout_height="wrap_content"
+		                 android:layout_weight="0.8"
+		                 android:padding="10dip"
+		                 android:singleLine="true"
+		                 android:text=""
+		                 android:textSize="16dip"
+	                     android:textColor="#000000"/>
+		        <ImageView
+		                 android:layout_width="20dip"
+		                 android:layout_height="20dip"
+		                 android:layout_gravity="center_vertical|right"
+		                 android:layout_marginRight="6dip"
+		                 android:src="@drawable/blue_arrow" />
+		    </TableRow>
+		</TableLayout>
+</LinearLayout>

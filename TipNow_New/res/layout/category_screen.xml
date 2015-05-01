@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/back_screen"
+    android:id="@+id/linearLayoutMain">
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/header"
+        android:gravity="center"
+        android:id="@+id/linearLayoutHeader">
+        <TextView android:text="TipNow"
+            android:id="@+id/textViewHeaderText"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+    </LinearLayout> <!-- linearLayoutHeader -->
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        
+        android:gravity="center">
+    <LinearLayout android:layout_width="300dip"
+        android:layout_height="380dip"
+     	android:orientation="vertical"
+        android:padding="10dip"
+        android:gravity="center"
+        android:layout_marginLeft="15dip"
+		android:layout_marginRight="15dip"
+        android:id="@+id/linearLayoutOuter"
+        android:background="@drawable/border">
+        <!-- <LinearLayout android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="2dip"
+	        android:id="@+id/linearLayoutInnerOne"
+	        android:background="@drawable/rounded_corner_darker">
+	        <LinearLayout android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:padding="1dip"
+		        android:id="@+id/linearLayoutInnerTwo"
+		        android:background="@drawable/rounded_corner_darker">
+		        <LinearLayout android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        
+			        android:padding="1dip"
+			        android:id="@+id/linearLayoutInnerThree"
+			        android:background="@drawable/ronded_corner"> -->
+
+        <!-- <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickResgister"
+            android:text="Button" /> -->
+
+				    <TableLayout android:layout_width="fill_parent"
+				        android:layout_height="wrap_content"
+				        android:stretchColumns="*"
+				        android:id="@+id/tableLayoutContainer"
+				        android:background="@android:color/transparent" >
+				        <TableRow >
+				            <LinearLayout android:layout_width="0dip" 
+				                android:layout_height="wrap_content"
+				                android:gravity="left"
+				                android:layout_marginLeft="10dip"
+				                android:layout_marginBottom="5dip">
+				                <ImageView android:src="@drawable/campus"
+					                android:id="@+id/imageViewCampus"
+					                android:layout_width="105dip"
+					                android:scaleType="fitXY"
+					                android:background="@android:color/transparent"
+					                android:layout_height="105dip"
+					                android:onClick="onClickCampus"/>
+				            </LinearLayout>
+				            <LinearLayout android:layout_width="0dip" 
+				                android:layout_height="wrap_content"
+				                android:gravity="right"
+				                android:layout_marginRight="10dip"
+				                android:layout_marginBottom="5dip">
+				                <ImageView android:src="@drawable/cities"
+					                android:id="@+id/imageViewCities"
+					                android:layout_width="105dip"
+					                android:scaleType="fitXY"
+					                android:background="@android:color/transparent"
+					                android:layout_height="105dip"
+					                android:onClick="onClickCities"/>  
+				            </LinearLayout>
+				        </TableRow>
+				        <TableRow >
+				            <LinearLayout android:layout_width="0dip" 
+				                android:layout_height="wrap_content"
+				                android:gravity="left"
+				                android:layout_marginLeft="10dip"
+				                android:layout_marginTop="5dip"
+				                android:layout_marginBottom="5dip">
+				            <ImageView android:src="@drawable/media"
+				                android:id="@+id/imageViewMedia"
+				                android:layout_width="105dip"
+				                android:scaleType="fitXY"
+				                android:background="@android:color/transparent"
+				                android:layout_height="105dip"
+				                android:onClick="onClickMedia"/>
+				            </LinearLayout>
+				            <LinearLayout android:layout_width="0dip" 
+				                android:layout_height="wrap_content"
+				                android:gravity="right"
+				                android:layout_marginRight="10dip"
+				                android:layout_marginTop="5dip"
+				                android:layout_marginBottom="5dip">    
+				            <ImageView android:src="@drawable/retail"
+				                android:id="@+id/imageViewRetail"
+				                android:layout_width="105dip"
+				                android:scaleType="fitXY"
+				                android:background="@android:color/transparent"
+				                android:layout_height="105dip"
+				                android:onClick="onClickRetail"/>
+				            </LinearLayout>    
+				        </TableRow>
+				        <TableRow >
+				            <LinearLayout android:layout_width="0dip" 
+				                android:layout_height="wrap_content"
+				                android:gravity="left"
+				                android:layout_marginLeft="10dip"
+				                android:layout_marginTop="5dip">
+				            <ImageView android:src="@drawable/malls"
+				                android:id="@+id/imageViewMalls"
+				                android:layout_width="105dip"
+				                android:scaleType="fitXY"
+				                android:background="@android:color/transparent"
+				                android:layout_height="105dip"
+				                android:onClick="onClickMalls"/>
+				            </LinearLayout>
+				            <LinearLayout android:layout_width="0dip" 
+				                android:layout_height="wrap_content"
+				                android:gravity="right"
+				                android:layout_marginRight="10dip"
+				                android:layout_marginTop="5dip">    
+				            <ImageView android:src="@drawable/corporate"
+				                android:id="@+id/imageViewCorporate"
+				                android:layout_width="105dip"
+				                android:scaleType="fitXY"
+				                android:background="@android:color/transparent"
+				                android:layout_height="105dip"
+				                android:onClick="onClickCorporate"/>
+				            </LinearLayout>    
+				        </TableRow>
+				    </TableLayout>
+			<!-- //    </LinearLayout>  --><!-- linearLayoutInnerThree -->
+		 <!--  //  </LinearLayout> -->	<!-- linearLayoutInnerTwo -->
+	    <!-- //</LinearLayout> -->	<!-- linearLayoutInnerOne -->
+	</LinearLayout>	<!-- linearLayoutOuter -->
+	</LinearLayout>
+
+</LinearLayout>	<!-- linearLayoutMain -->

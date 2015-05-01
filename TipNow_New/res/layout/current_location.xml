@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal">
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+         android:background="@drawable/discription_input_back"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="3dp"
+        android:gravity="center">
+        <TextView android:text="'TipNow' would like to access your current location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <Button android:text="Allow"
+            android:id="@+id/buttonAllow"
+            android:layout_marginRight="10dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+        <Button android:text="Disallow"
+            android:id="@+id/buttonDisallow"
+            android:layout_marginRight="10dp"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    </LinearLayout>
+    
+
+</LinearLayout>

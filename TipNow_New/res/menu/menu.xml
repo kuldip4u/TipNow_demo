@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuItemCategories"
+        android:icon="@drawable/newtip" 
+        android:title="Categories"/>
+    <item android:id="@+id/menuItemMessages"
+        android:icon="@drawable/list"
+        android:title="Messages" />
+</menu>

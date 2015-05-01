@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/back_screen"
+    android:id="@+id/linearLayoutMain">
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/header"
+        android:gravity="center_vertical"
+        android:id="@+id/linearLayoutHeader">
+        <ImageView android:src="@drawable/back_btn"
+            android:contentDescription="@string/backbutton"
+            android:layout_width="70dip"
+            android:layout_height="40dip"
+            android:scaleType="fitXY"
+            android:id="@+id/imageViewBackButton"
+            android:layout_marginLeft="15dip"
+            android:onClick="onClickBackButton"
+            android:background="@android:color/transparent"/>   
+        <!-- <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick Picture"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/textViewTopHeader"
+                android:textColor="@android:color/white"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:textStyle="bold"/>
+        </LinearLayout>  -->    
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/linearLayoutFullHeight"
+        android:gravity="center">
+        <LinearLayout android:layout_width="300dip"
+        android:layout_height="380dip"
+	        android:layout_margin="15dip"
+	        android:orientation="vertical"
+	        android:id="@+id/linearLayoutOuter"
+	        android:background="@drawable/border">
+	        <ImageView android:layout_width="fill_parent"
+	            android:contentDescription="@string/imagearea"
+				android:id="@+id/imageViewPlaceHolder"
+				android:layout_height="250dip"
+				android:scaleType="fitXY"
+				android:visibility="gone"
+				android:background="@android:color/transparent"
+				android:src="@drawable/img_placeholder"
+				android:layout_margin="15dip"/>
+			<VideoView android:layout_width="fill_parent"
+				android:layout_height="200dip"
+				android:visibility="gone"
+				android:src="@drawable/img_placeholder"
+				android:layout_margin="15dip"
+				android:background="@drawable/vid_placeholder"
+				android:id="@+id/videoViewPlaceHolder" />
+			<TableLayout android:layout_height="fill_parent"
+				android:layout_width="fill_parent"
+				android:stretchColumns="*"
+				android:gravity="bottom"
+				android:id="@+id/tableLayoutImageContainer"
+				android:layout_marginTop="10dip"
+				android:layout_marginBottom="10dip">
+				<TableRow >
+					<ImageView android:layout_width="0dip"
+						android:id="@+id/imageViewMediaFromGallary"
+					    android:layout_height="wrap_content"
+					    android:layout_weight="1"
+					    android:scaleType="fitXY"
+					    android:src="@drawable/image_frm_gallery"
+					    android:layout_marginLeft="10dip"
+					    android:layout_marginRight="10dip"
+					    android:onClick="onClickMediaFromGallary"
+					    android:background="@android:color/transparent"/>
+					<ImageView android:layout_width="0dip"
+					    android:id="@+id/imageViewTakeMedia"
+					    android:layout_height="wrap_content"
+					    android:layout_weight="1"
+					    android:scaleType="fitXY"
+					    android:layout_marginLeft="10dip"
+					    android:layout_marginRight="10dip"
+					    android:src="@drawable/take_image"
+					    android:onClick="onClickTakeMedia"
+					    android:background="@android:color/transparent"/>
+				</TableRow>
+			</TableLayout>  <!-- tableLayoutImageContainer -->
+		</LinearLayout>	<!-- linearLayoutOuter -->
+    </LinearLayout>	<!-- linearLayoutFullHeight -->
+</LinearLayout>	<!-- linearLayoutMain -->

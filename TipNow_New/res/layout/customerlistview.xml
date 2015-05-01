@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@android:color/white"
+    android:id="@+id/linearLayoutMain">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_marginBottom="5dip"
+		android:orientation="vertical"
+		android:gravity="center">
+	    <LinearLayout android:layout_width="fill_parent"
+	        android:layout_height="50dip"
+	        android:background="@drawable/header"
+	        android:gravity="center_vertical"
+	        android:paddingBottom="2dip"
+	        android:id="@+id/linearLayoutHeader">
+	        <ImageView android:src="@drawable/back_btn"
+	            android:layout_width="70dip"
+            android:layout_height="40dip"
+	            android:scaleType="fitXY"
+	            android:id="@+id/imageViewBackButton"
+	            android:layout_marginLeft="15dip"
+	            android:onClick="onClickBackButton"
+	            android:background="@android:color/transparent"/>    
+	    </LinearLayout>
+        <ListView 
+            android:divider="@android:color/transparent"
+            android:dividerHeight="3dip"
+            android:layout_margin="10dip"
+			android:id="@id/android:list"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:drawSelectorOnTop="false" />
+			<TextView android:textStyle="bold"
+			        android:gravity="center"
+			        android:id="@id/android:empty"
+			       	android:layout_width="fill_parent"
+			       	android:layout_height="fill_parent"
+			        android:text=""/>
+	</LinearLayout>
+</LinearLayout>

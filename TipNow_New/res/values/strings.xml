@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+
+    <string name="hello">Hello World, TipNowActivity!</string>
+    <string name="app_name">TipNow</string>
+    <string name="tipnow">TipNow</string>
+    <string name="tipnowlogo">TipNow Logo</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="emailid">Email ID</string>
+    <string name="submitbutton">Submit Button</string>
+    <string name="backbutton">Back Button</string>
+    <string name="attachmentimage">Attachment Image</string>
+	<string name="tiptitle">Tip Title:</string>
+	<string name="description">Description:</string>
+	<string name="addmediaimage">Add Media Image</string>
+	<string name="sendtipimage">Send Tip Image</string>
+	<string name="imagearea">Image Ares</string>
+	<string name="locationtitle">Your location: Country, State and City e.g. USA, CA, San Jose.</string>
+	<string name="tipnowoptin">TipNow Opt-in</string>
+</resources>
