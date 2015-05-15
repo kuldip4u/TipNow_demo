@@ -27,6 +27,7 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -88,10 +89,10 @@ public class TipScreenActivity extends Activity{
 		
 		Customer_Name = TipTitle.getStringExtra("CUSTOMER_NAME");
 		Category_Name = TipTitle.getStringExtra("CATEGORYNAME");
-		Org_Id = TipTitle.getStringExtra("ORG_ID");
-		Title= TipTitle.getStringExtra("TipTitle").toString();
-		UDID = tipNowApplication.getUDID();
-		Latitude = TipTitle.getStringExtra("LATITUDE");
+		Org_Id 	= TipTitle.getStringExtra("ORG_ID");
+		Title	= TipTitle.getStringExtra("TipTitle").toString();
+		UDID 	= tipNowApplication.getUDID()== null? getUDID() : tipNowApplication.getUDID();
+		Latitude= TipTitle.getStringExtra("LATITUDE");
 		Longitude = TipTitle.getStringExtra("LONGITUDE");
 		address_id = TipTitle.getStringExtra("Address_Id");
 		appType = TipTitle.getStringExtra("appType");
@@ -99,7 +100,8 @@ public class TipScreenActivity extends Activity{
 		//Log.d("Get ORG ID", Org_Id);
 		titlefield=(EditText)findViewById(R.id.editextTipTitle);
 	    titlefield.setText(Title);
-	    
+	    titlefield.clearFocus();
+	    editTextDescription.requestFocus();
 	    
 	    editTextDescription.addTextChangedListener(new TextWatcher() {
 			
@@ -124,6 +126,23 @@ public class TipScreenActivity extends Activity{
 	    
 	}
 	
+	private String getUDID(){
+		 TelephonyManager tm = (TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
+		 String DeviceId, SerialNum, androidId;
+		 String mydeviceId;
+		
+		 
+	        DeviceId = tm.getDeviceId();
+	        SerialNum = tm.getSimSerialNumber();
+	        androidId = Secure.getString(getContentResolver(),Secure.ANDROID_ID);
+	        
+	        mydeviceId = Secure.getString(this.getContentResolver(),Secure.ANDROID_ID); 
+	        mydeviceId = mydeviceId.trim();
+	       // UUID deviceUuid = new UUID(androidId.hashCode(), ((long)DeviceId.hashCode() << 32) | SerialNum.hashCode());
+	       // mydeviceId = deviceUuid.toString().trim();
+	        tipNowApplication.setUDID(mydeviceId!=null? mydeviceId : "");
+	        return tipNowApplication.getUDID();
+	}
 	
 	private boolean checkInternetConnection() {
 		android.net.ConnectivityManager conMgr = (android.net.ConnectivityManager) getSystemService (Context.CONNECTIVITY_SERVICE);
@@ -213,8 +232,7 @@ public class TipScreenActivity extends Activity{
 			//titlefield.requestFocus();
 		}else{
 			if(checkInternetConnection()){
-				if(editTextDescription.getText().toString().trim().contains("'") ||
-						titlefield.getText().toString().trim().contains("'")){
+				if(editTextDescription.getText().toString().trim().contains("'") || titlefield.getText().toString().trim().contains("'")){
 					
 					editTextDescription.getText().toString().replace("'", "");
 					titlefield.getText().toString().replace("'", "");
@@ -257,7 +275,6 @@ public class TipScreenActivity extends Activity{
 				alertDialog.show();
 			}
 		}
-
 	}
 	
 	@Override
@@ -303,6 +320,7 @@ public class TipScreenActivity extends Activity{
 										tipNowApplication.set_imageData(null);
 										titlefield.setText("");
 										editTextDescription.setText("");
+										editTextDescription.setError(null);
 										imageViewAttachment.setVisibility(View.INVISIBLE);
 										tipNowApplication.set_imageData(null);
 										tipNowApplication.setVideoFile(null);
@@ -328,7 +346,6 @@ public class TipScreenActivity extends Activity{
                 			alertDialog.show();
 						}
 					}
-					
 				}
 			});
 		}

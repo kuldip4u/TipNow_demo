@@ -10,7 +10,7 @@ public class TipNowApplication extends Application {
 	boolean videoFlag=false;
 	byte[] _imageData=null;
 	String applicationKey="9b22e8ac450bf8dabd90915b1b00a15c";
-	String UDID=null;
+	String UDID="";
 	String latitude="",longitude="";
 	String imagePath="";
 	File videoFile=null;
