@@ -30,13 +30,19 @@ import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.LayoutInflater.Factory;
+import android.view.View.OnClickListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+
+
+
+import com.tipnow.GlobalVariables;
 //import java.util.UUID;
 import com.tipnow.LocationFinder;
 import com.tipnow.R;
@@ -45,7 +51,7 @@ import com.tipnow.chooselocation.ChooseLocationActivity;
 import com.tipnow.message.MessageActivity;
 import com.tipnow.orgcustomer.CustomerList;
 
-public class CategoryActivity extends Activity implements LocationListener {
+public class CategoryActivity extends Activity implements LocationListener, OnClickListener {
 	boolean locationFlag=false;
 	Activity myContext;
 	private Thread LocationThread;
@@ -60,13 +66,21 @@ public class CategoryActivity extends Activity implements LocationListener {
 	String mydeviceId;
 	LocationManager locationManager;
 	String bestProvider;
-	String categoryName; 
+	String categoryName;
+	
+	
+	private ImageButton mCrimeIb, mIlligalIb, mBehaviorIb, mReportIb, mRobberyIb, mSexualIb, mSuspeciousIb, mOtherIb;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {  
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.category_screen);
+		setContentView(R.layout.category_screen_new);
 	    application= (TipNowApplication)getApplication();
 	    LoadPreferences();
+	    
+	    controlInitialization();
+	    
 	    myContext=this;
 	    Thandler= new Handler();
 	    TelephonyManager tm = (TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
@@ -84,6 +98,30 @@ public class CategoryActivity extends Activity implements LocationListener {
         provider = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
 	   // register();
 	}
+	
+	
+	private void controlInitialization(){
+		
+		mCrimeIb 	= (ImageButton) findViewById(R.id.crimeIv);
+		mIlligalIb 	= (ImageButton) findViewById(R.id.illigalIv);
+		mBehaviorIb = (ImageButton) findViewById(R.id.behaviorIv);
+		mReportIb 	= (ImageButton) findViewById(R.id.reportIv);
+		mRobberyIb 	= (ImageButton) findViewById(R.id.robberyIv);
+		mSexualIb 	= (ImageButton) findViewById(R.id.sexualIv);
+		mSuspeciousIb = (ImageButton) findViewById(R.id.suspiciousIv);
+		mOtherIb 	= (ImageButton) findViewById(R.id.otherIv);
+	
+		mCrimeIb.setOnClickListener(this);
+		mIlligalIb.setOnClickListener(this);
+		mBehaviorIb.setOnClickListener(this);
+		mReportIb.setOnClickListener(this);
+		mRobberyIb.setOnClickListener(this);
+		mSexualIb.setOnClickListener(this);
+		mSuspeciousIb.setOnClickListener(this);
+		mOtherIb.setOnClickListener(this);
+	}
+	
+	/** .......OLD CLICK LISTNERS...........*/
 	
 	public void onClickCorporate(View v){
 		categoryName = "corporate";
@@ -126,7 +164,6 @@ public class CategoryActivity extends Activity implements LocationListener {
 		}		
 	}
 	
-	
 	public void onClickMalls(View v){
 		categoryName = "malls";
 		if(checkInternetConnection()){
@@ -166,7 +203,6 @@ public class CategoryActivity extends Activity implements LocationListener {
 			 alertDialog.show();
 		}
 	}
-	
 	
 	public void onClickRetail(View v){
 		categoryName = "retail";
@@ -211,7 +247,6 @@ public class CategoryActivity extends Activity implements LocationListener {
 		}
 	}
 	
-	
 	public void onClickMedia(View v){
 		categoryName = "media";
 		if(checkInternetConnection()){
@@ -249,7 +284,6 @@ public class CategoryActivity extends Activity implements LocationListener {
 			 alertDialog.show();
 		}
 	}
-	
 	
 	public void onClickCities(View v){
 		categoryName = "Cities";
@@ -328,6 +362,77 @@ public class CategoryActivity extends Activity implements LocationListener {
 		}
 		
 	}
+	
+	/** .....  LISTENER IMPLEMENTATION ....	**/
+	@Override
+	public void onBackPressed() {
+		showAlert();
+		//super.onBackPressed();
+	}
+	
+	@Override
+	public void onClick(View v) {
+		
+		switch (v.getId()) {
+			case R.id.crimeIv:
+				categoryName = "corporate";
+				
+				if(checkInternetConnection()){
+					if(location_Access==null || location_Access.trim().equalsIgnoreCase("")){
+						openAlertDialog();
+					}else if(location_Access.trim().equalsIgnoreCase("ALLOW")){
+						application.setcategory("CORPORATE");
+						try{
+							findCurrentLocation();
+						}catch (Exception e) {
+							e.toString();
+						}
+					}else if(location_Access.trim().equalsIgnoreCase("DISALLOW")){
+						application.setcategory("CORPORATE");
+						callIntent();
+					}
+				}else{
+					GlobalVariables.showNetworkDialog(this);
+					
+				}		
+				
+				break;
+			case R.id.illigalIv:
+							
+					break;
+			case R.id.behaviorIv:
+				
+				break;
+			case R.id.reportIv:
+				
+				break;
+			case R.id.robberyIv:
+				
+				break;
+			case R.id.sexualIv:
+				
+				break;
+			case R.id.suspiciousIv:
+				
+				break;
+			case R.id.otherIv:
+				
+				break;
+
+		}
+	}
+	
+	
+	
+	
+	private void callIntent(){
+		Intent intent;
+	    intent=new Intent(CategoryActivity.this, ChooseLocationActivity.class);
+	    intent.putExtra("CATEGORYNAME", categoryName);
+	    startActivity(intent);
+	}
+	
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -770,12 +875,7 @@ public class CategoryActivity extends Activity implements LocationListener {
 		
 	}
 
-	@Override
-	public void onBackPressed() {
-		showAlert();
-		//super.onBackPressed();
-	}
-	
+
 	
 	void showAlert() {
 
@@ -821,4 +921,7 @@ public class CategoryActivity extends Activity implements LocationListener {
 		//output.append("\n\nProvider Status Changed: " + provider + ", Status="
 		//		+ S[status] + ", Extras=" + extras);
 	}
+
+
+	
 }
