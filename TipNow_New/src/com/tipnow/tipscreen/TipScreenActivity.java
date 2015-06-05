@@ -91,7 +91,7 @@ public class TipScreenActivity extends Activity{
 		Category_Name = TipTitle.getStringExtra("CATEGORYNAME");
 		Org_Id 	= TipTitle.getStringExtra("ORG_ID");
 		Title	= TipTitle.getStringExtra("TipTitle").toString();
-		UDID 	= tipNowApplication.getUDID()== null? getUDID() : tipNowApplication.getUDID();
+		UDID 	= (tipNowApplication.getUDID()== null || tipNowApplication.getUDID().equalsIgnoreCase(""))? getUDID() : tipNowApplication.getUDID();
 		Latitude= TipTitle.getStringExtra("LATITUDE");
 		Longitude = TipTitle.getStringExtra("LONGITUDE");
 		address_id = TipTitle.getStringExtra("Address_Id");
@@ -298,10 +298,12 @@ public class TipScreenActivity extends Activity{
 		}
 	}
 	
+	// Sending the Tip using Web service.
 	class SendTipThread extends Thread{
 		@Override
 		public void run() {
 			sendTipWithImage();
+			
 			Thandler.post(new Runnable() {
 				@Override
 				public void run() {
@@ -427,14 +429,26 @@ public class TipScreenActivity extends Activity{
 	
 	public void sendTipWithImage(){
 		try {
+			Log.v("sendTipWithImage", "sendTipWithImage");
 			TelephonyManager mTelephonyMgr;
+			
+			
 		    mTelephonyMgr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE); 
-			//TelephonyManager tMgr =(TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
-			String  mPhoneNumber = mTelephonyMgr.getLine1Number();
-            if(mPhoneNumber.length() == 0) {
-            	mPhoneNumber ="N/A";
-            }
+			
+		    //TelephonyManager tMgr =(TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+		    String  mPhoneNumber =  "N/A";
+		    if(mTelephonyMgr != null){
+		    	mPhoneNumber = mTelephonyMgr.getLine1Number();
+	            if(mPhoneNumber== null || mPhoneNumber.length() == 0) {
+	            	mPhoneNumber ="N/A";
+	            }
+		    }else
+		    	mPhoneNumber ="N/A";
+		    
+		    
+          
 
+            Log.v("mPhoneNumber", mPhoneNumber);
 			String number = getIntent().getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
 			HttpClient httpClient = new DefaultHttpClient();
 			HttpContext localContext = new BasicHttpContext();
@@ -444,6 +458,7 @@ public class TipScreenActivity extends Activity{
 			//HttpPost httpPost = new HttpPost("http://ec2-184-72-193-81.compute-1.amazonaws.com/mobileapp.tipnow.net/api/tips/newtip.php");
 			MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
 			SharedPreferences messageKey = getSharedPreferences(AppConfig.appName,0);
+			
 			
 			entity.addPart("udid", new StringBody(UDID));
 			//entity.addPart("udid", new StringBody("1234567890"));
@@ -497,8 +512,9 @@ public class TipScreenActivity extends Activity{
 			afterTipSentMessage = "SUCCESS";
 			Log.v("SendTip-Response=", total.toString());
 		} catch (Exception e) {
+			e.printStackTrace();
 			afterTipSentMessage="ERROR";
-			//Log.v("Send-Tip", "Error in sending: "+e.toString());
+			
 		}
 	}
 }
