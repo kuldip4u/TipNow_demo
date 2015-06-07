@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Font colors -->
+    <color name="Transparent">#00000000</color>
+    <color name="SemiTransparent">#aa000000</color>
+    <color name="Black">#000000</color>
+    <color name="White">#ffffff</color>
+    <color name="LtstGrey">#f7f7f7</color>
+    <color name="LtGrey">#9a9a9a</color>
+    <color name="DarkGrey">#1f1f1f</color>
+    <color name="LtRed">#fd0000</color>
+    <color name="LtBlue">#0064b4</color>
+    <color name="Focussed">#336699</color>
+    <color name="Selected">#003366</color>
+    <color name="LightBlack">#616161</color>
+    <color name="dashB_bg">#222222</color>
+    <color name="dashB_line">#3a3a3a</color>
+    <color name="dashB_textGrey">#999999</color>
+    <color name="profile_bgHead">#f6f6f6</color>
+    <color name="dark_greyText">#444444</color>
+    <color name="seperator">#c7c7c7</color>
+	<color name="green">#56b708</color>
+    <color name="line_seperator">#d8d8d8</color>
+    <color name="green_circle">#61c4a8</color>
+    <color name="pitch_circle">#d3ab92</color>
+    <color name="member_back_grey">#ededed</color>
+    <color name="red_dull">#d73421</color>
+    
+</resources>

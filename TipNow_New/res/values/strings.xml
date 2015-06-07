@@ -18,4 +18,17 @@
 	<string name="imagearea">Image Ares</string>
 	<string name="locationtitle">Your location: Country, State and City e.g. USA, CA, San Jose.</string>
 	<string name="tipnowoptin">TipNow Opt-in</string>
+	
+	<!-- ..........Category List........-->
+	
+	<string name="crime_in_progress">Crime in Progress</string>
+	<string name="illegally_parked_vehicle">Illegally Parked Vehicle</string>
+	<string name="PanhndlingOr">Panhandling or Disruptive Behavior</string>
+	<string name="report_a_crime">Report a Crime Tip</string>
+	<string name="Robbery_theft">Robbery / Theft</string>
+	<string name="sexual_assault">Sexual Assault/Lewd Behavior</string>
+	<string name="suspiciaous_activity">Suspicious Activity</string>
+	<string name="other">Other</string>
+	
+	
 </resources>

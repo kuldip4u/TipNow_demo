@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/back_screen"
+    android:id="@+id/linearLayoutMain">
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/header"
+        android:gravity="center"
+        android:id="@+id/linearLayoutHeader">
+        <TextView android:text="TipNow"
+            android:id="@+id/textViewHeaderText"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+    </LinearLayout> <!-- linearLayoutHeader -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/otherrl"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutOuter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp" >
+
+                    <Button
+                        android:id="@+id/crimeBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:background="@drawable/header"
+                        android:text="@string/crime_in_progress"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/illigalBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/header"
+                        android:text="@string/illegally_parked_vehicle"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/panhandlingBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/header"
+                        android:text="@string/PanhndlingOr"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/reportBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/header"
+                        android:text="@string/report_a_crime"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/robberyBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/header"
+                        android:text="@string/Robbery_theft"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/sexualBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/header"
+                        android:text="@string/sexual_assault"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/suspeciousBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/header"
+                        android:text="@string/suspiciaous_activity"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/otherBtn"
+                        style="@style/Wrap.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/cat_height"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/header"
+                        android:text="@string/other"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/otherrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/newtip" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/list" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>	<!-- linearLayoutMain -->
