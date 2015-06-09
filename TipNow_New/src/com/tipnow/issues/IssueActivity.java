@@ -54,6 +54,7 @@ public class IssueActivity extends ListActivity implements OnItemClickListener{
 			"Harassment", "Workplace Violence" , "Depressed/Suicidal"};
 	String[]MallIssues=	{"Assualt", "Auto Theft", "Damaged Property", "Personal Illness", 
 			"Robbery"," Suspicious Persons Theft","Trespassing", "Vandalism"};
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

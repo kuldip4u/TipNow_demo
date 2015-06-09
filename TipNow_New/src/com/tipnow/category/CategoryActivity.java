@@ -39,6 +39,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+
+import com.tipnow.GlobalVariables;
 //import java.util.UUID;
 import com.tipnow.LocationFinder;
 import com.tipnow.R;
@@ -428,8 +430,6 @@ public class CategoryActivity extends Activity implements LocationListener, OnCl
 
 		}
 	}
-	
-	
 	
 	
 	private void callIntent(){
